@@ -42,12 +42,12 @@
 
     }
 
-    /*.links {
+    .links {
         border: 1px solid;
         padding-left: 3%;
         display: flex;
         justify-content: flex-end;
-    }*/
+    }
 
     .demo {
         margin-left: auto;
@@ -146,8 +146,15 @@
         padding: 5px;
         width: 100%;
     }
-    p {
-        
+    .links {
+        width: 25%;
+    }
+    .demo, .mainpage {
+        width: 50%;
+    }
+
+    .demo a, .mainpage a {
+        font-size: 100%;
     }
     .header {
         
