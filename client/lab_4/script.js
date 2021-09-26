@@ -1,18 +1,23 @@
 let slidePosition = 0;
 const slides = document.querySelectorAll('.carousel-item'); //creates array-like object of carousel items
 const totalSlides = slides.length;
+const next_button = document.querySelector('#carousel-button--next');
+const prev_button = document.querySelector('#carousel-button--prev');
 
 //console.log(slides.length);
 
-document.querySelector('#carousel-button--next')
-.addEventListener("click", () => {
+next_button.addEventListener("click", () => {
     moveToNextSlide();
+    next_button.style.border = "medium solid green";
+    prev_button.style.border = "none";
 })
 
-document.querySelector('#carousel-button--prev')
-.addEventListener("click", () => {
+prev_button.addEventListener("click", () => {
     moveToPrevSlide();
+    prev_button.style.border = "medium solid green";
+    next_button.style.border = "none";
 })
+
 
 updateSlidePosition = () => {
     for(let slide of slides) {
@@ -45,7 +50,7 @@ moveToPrevSlide = () => {
     else {
         slidePosition--;
     }
-    
+
     updateSlidePosition();
 }
     

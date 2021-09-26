@@ -86,7 +86,7 @@
 
     .carousel {
         overflow: hidden;
-        width: 400px;
+        max-width: 410px;
         position: relative;
         margin: auto; /*Centers carousel*/
     }
@@ -107,6 +107,7 @@
 
     .carousel .carousel-item--visible {
         display: block;
+        width: 410px;
     }
 
     .carousel .carousel-actions {
@@ -130,12 +131,12 @@
 
     .carousel .carousel-actions 
     button#carousel-button--prev {
-        margin-right: 20px;
+        margin-right: 55px;
     }
 
     .carousel .carousel-actions 
     button#carousel-button--next {
-        margin-left: 20px;
+        margin-left: 55px;
         background-color: orange;
     }
 
