@@ -86,7 +86,7 @@
 
     .carousel {
         overflow: hidden;
-        max-width: 300px;
+        width: 400px;
         position: relative;
         margin: auto; /*Centers carousel*/
     }
@@ -100,7 +100,10 @@
         width: 100%;
         max-width: 300px;
         height: auto; 
-    }
+        display: flex;
+        justify-content: center;
+        margin: auto;
+        }
 
     .carousel .carousel-item--visible {
         display: block;
@@ -126,7 +129,13 @@
     }
 
     .carousel .carousel-actions 
-    #carousel-button--next {
+    button#carousel-button--prev {
+        margin-right: 20px;
+    }
+
+    .carousel .carousel-actions 
+    button#carousel-button--next {
+        margin-left: 20px;
         background-color: orange;
     }
 
@@ -160,13 +169,15 @@
     .footer {
         display: flex;
         justify-content: space-between;
+        height: 100px;
     }
     
     .footer-item {
         border: 1px solid #fff;
         background-color: #D6E9FE;
-        height: 200px;
         flex: 1;
+        height: 100px;
+        
     }
     .footer-two {
         flex: 5;
@@ -182,6 +193,7 @@
 /* Mobile Styles */
 
 @media only screen and (max-width: 960px) {
+    
     .menu {
         width: 100%;
     }
@@ -196,13 +208,14 @@
     }
     .demo, .mainpage {
         width: 50%;
+        font-size: 75%;
     }
 
     .demo a, .mainpage a {
         font-size: 100%;
     }
-    .header {
-        
+    .header-container {
+        width: 100%;
     }
     
     .photo-grid {
@@ -218,13 +231,16 @@
         width: 100%;
     }
 
+    .footer {
+    }
+
     .footer-item {
         border: 1px solid #fff;
         background-color: #D6E9FE;
+        font-size: 80%;
         height: 100px;
-        flex: 1;
     }
-    footer-two {
+    .footer-two {
         flex: 5;
     }
 
