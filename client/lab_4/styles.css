@@ -78,12 +78,59 @@
     .demo a, .mainpage a {
         color: white;  
     }
-    .photo-grid-container {
+    /*.photo-grid-container {
         display: flex;
         justify-content: center;
 
+    }*/
+
+    .carousel {
+        overflow: hidden;
+        max-width: 300px;
+        position: relative;
+        margin: auto; /*Centers carousel*/
     }
-    .photo-grid {
+
+    .carousel .carousel-item,
+    .carousel .carousel-item--hidden {
+        display: none;
+    }
+
+    .carousel .carousel-item img {
+        width: 100%;
+        max-width: 300px;
+        height: auto; 
+    }
+
+    .carousel .carousel-item--visible {
+        display: block;
+    }
+
+    .carousel .carousel-actions {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    .carousel .carousel-actions button {
+        border-radius: 5px;
+        padding-left: 10px;
+        padding-right: 10px;
+        padding-top: 3px;
+        padding-bottom: 3px;
+        border: 0;
+        font-weight: 700;
+    }
+
+    .carousel .carousel-actions 
+    #carousel-button--next {
+        background-color: orange;
+    }
+
+    /*.photo-grid {
         width: 900px;
         display: flex;
         justify-content: center;    
@@ -109,7 +156,7 @@
     }
     .last-item {
         order: 2
-    }
+    } */
     .footer {
         display: flex;
         justify-content: space-between;
