@@ -14,37 +14,38 @@ document.querySelector('#carousel-button--prev')
     moveToPrevSlide();
 })
 
+updateSlidePosition = () => {
+    for(let slide of slides) {
+        slide.classList.remove('carousel-item--visible');
+        slide.classList.add('carousel-item--hidden');
+    }
+
+    slides[slidePosition].classList.add('carousel-item--visible');
+}
+
 moveToNextSlide = () => {
     //console.log('test');
+
     if (slidePosition === totalSlides - 1) {
         slidePosition = 0;
-        slides[slidePosition].classList.add("carousel-item--visible");
-        slides[totalSlides-1].classList.remove("carousel-item--visible")
     }
 
     else {
         slidePosition++;
-        //console.log(slidePosition);
-        slides[slidePosition].classList.add("carousel-item--visible");
-        slides[slidePosition-1].classList.remove("carousel-item--visible")
     }
+    updateSlidePosition();
 }
 
 moveToPrevSlide = () => {
     //console.log('test');
     if (slidePosition === 0) {
         slidePosition = totalSlides-1;
-        slides[slidePosition].classList.add("carousel-item--visible");
-        slides[0].classList.remove("carousel-item--visible")
     }
 
     else {
         slidePosition--;
-        console.log(slidePosition);
-        slides[slidePosition].classList
-        .add("carousel-item--visible");
-        slides[slidePosition+1].classList
-        .remove("carousel-item--visible")
     }
+    
+    updateSlidePosition();
 }
     
