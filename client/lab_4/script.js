@@ -1,3 +1,13 @@
+/* eslint-disable no-plusplus */
+/* eslint-disable keyword-spacing */
+/* eslint-disable prefer-const */
+/* eslint-disable camelcase */
+/* eslint-disable spaced-comment */
+/* eslint-disable semi */
+/* eslint-disable indent */
+/* eslint-disable no-restricted-syntax */
+/* eslint-disable quotes */
+/* eslint-disable linebreak-style */
 let slidePosition = 0;
 const slides = document.querySelectorAll('.carousel-item'); //creates array-like object of carousel items
 const totalSlides = slides.length;
@@ -18,7 +28,6 @@ prev_button.addEventListener("click", () => {
     next_button.style.border = "none";
 })
 
-
 updateSlidePosition = () => {
     for(let slide of slides) {
         slide.classList.remove('carousel-item--visible');
@@ -33,9 +42,7 @@ moveToNextSlide = () => {
 
     if (slidePosition === totalSlides - 1) {
         slidePosition = 0;
-    }
-
-    else {
+    } else {
         slidePosition++;
     }
     updateSlidePosition();
@@ -44,13 +51,10 @@ moveToNextSlide = () => {
 moveToPrevSlide = () => {
     //console.log('test');
     if (slidePosition === 0) {
-        slidePosition = totalSlides-1;
-    }
-
-    else {
+        slidePosition = totalSlides - 1;
+    } else {
         slidePosition--;
     }
 
     updateSlidePosition();
 }
-    
