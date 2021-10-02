@@ -17,13 +17,12 @@ body {
   background-color: rgb(54, 54, 54);
 }
 
-/* Page Layout */
-
-.heading {
-  height: 12%;
-  width: 100%;
+.box {
+  font-family: ‘Segoe UI’, Candara, ‘Bitstream Vera Sans’, ‘DejaVu Sans’,
+    ‘Bitsream Vera Sans’, ‘Trebuchet MS’, Verdana, ‘Verdana Ref’, sans-serif;
 }
 
+/* Page Layout */
 
 .header {
   width: 90%;
@@ -36,6 +35,8 @@ body {
   margin-top: 20px;
   color: black;
   border-radius: 15px;
+  font-family: ‘Segoe UI’, Candara, ‘Bitstream Vera Sans’, ‘DejaVu Sans’,
+    ‘Bitsream Vera Sans’, ‘Trebuchet MS’, Verdana, ‘Verdana Ref’, sans-serif;
 }
 
 .header h1 {
@@ -58,13 +59,16 @@ body {
   max-width: 960px;
   margin-top: 25px;
   height: 100%;
-  justify-content: space-around;
+  justify-content: center;
+  column-gap: 40px;
 }
 
 .something {
   height: 10%;
 }
 
-.something .column .box .is-6 {
-  text-align: end;
+.something p {
+  margin-top: 22px;
 }
+
+
