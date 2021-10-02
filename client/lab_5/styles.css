@@ -21,18 +21,25 @@ body {
 
 .heading {
   height: 12%;
-  display: flex;
-  justify-items: center;
+  width: 100%;
 }
 
 
 .header {
   width: 90%;
-  height: 80%;
+  height: 10%;
   background-color: rgb(43, 128, 43);
   display: flex;
+  justify-items: center;
   align-items: center;
+  margin: auto;
+  margin-top: 20px;
   color: black;
+  border-radius: 15px;
+}
+
+.header h1 {
+  margin-left: 30px;
 }
 
 .columns {
@@ -56,11 +63,8 @@ body {
 
 .something {
   height: 10%;
-  vertical-align: middle;
 }
 
-.something .column .box .is-6 p{
-  
+.something .column .box .is-6 {
+  text-align: end;
 }
-
-
