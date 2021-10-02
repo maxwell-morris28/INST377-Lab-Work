@@ -4,16 +4,56 @@
         <meta charset='UTF-8'>
         <link rel='stylesheet' href='styles.css'>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
-
     </head>
     <body>
-        <header>
-            <h1>Maxwell Morris' Lab 5</h1>
-            <form action="/api">
-                <label for="first">First Name</label>
-                <input id="first" name="first" type="first"/>
+        <div class="heading">
+            <header class="is-size-4 header">
+                <h1>Maxwell Morris' Lab 5</h1>
+            </header>  
+        </div>
+            <div class="wrapper">
+                <div class="container columns is-vcentered is-multiline">
+                    <form action="/api" method="get" class='box column is-3 block'>
+                        <div class="field">
+                            <label for="first" class="label">First Name</label>
+                            <div class="control">
+                                <input id="first" name="first" type="text" class="input"/>  
+                            </div>
+                            
+                        </div>
+                        
+                        <div class="field">
+                            <label for='preference' class="label">Food Preference</label>
+                            <div class="control">
+                                <input id="preference" name="preference" type="text" class="input"/>
+                            </div>
 
-                <input type="submit" value="Submit">
-            </form>
+                                
+                        </div>
+                        <fieldset class='field'>
+                            <legend class="label">Veggie or Vegan?</legend>
+            
+                                <label for="vegan">Yes</label>
+                                <input  id='vegan' 
+                                        name='vegan-or-no' 
+                                        type='radio' 
+                                        value='yes'>
+
+                                <label for="nonvegan">No</label>
+                                <input  id="nonvegan" 
+                                        name="vegan-or-no" 
+                                        type="radio" 
+                                        value="no"/>
+                        </fieldset>
+                        <input type="submit" value="Submit" class="button">
+                
+                    </form>   
+                
+                    <div class="something column box is-6">
+                        <p>This is going to be something in two weeks.</p>
+                    </div>
+                </div>
+            </div>
+        
     </body>
 </html>
