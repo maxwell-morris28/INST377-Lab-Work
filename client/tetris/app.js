@@ -58,7 +58,7 @@ document.addEventListener('DOMContentLoaded', () => {
       squares[currentPosition + index].classList.add('tetromino');
     });
   }
-
+  
   //undraw
   function undraw() {
       current.forEach(index => {
@@ -66,24 +66,84 @@ document.addEventListener('DOMContentLoaded', () => {
       });
   }
   //make the tetromino 
-  timerId = setInterval(moveDown, 1000)
+  timerId = setInterval(moveDown, 100)
+
+  //assign functions to keycodes
+  function control(e) {
+      if(e.keyCode === 37) {
+          moveLeft()
+      }
+      else if (e.keyCode === 38) {
+          rotate()
+      }
+      else if (e.keyCode === 39) {
+          moveRight()
+      }
+      else if (e.keyCode === 40) {
+          //moveDown
+      }
+  }
+
+  document.addEventListener('keyup', control)
 
   //move down function
   function moveDown() {
       undraw();
       currentPosition += width;
       draw();
+      freeze();
   }
 
   //freeze function
   function freeze() {
       if(current.some(index => squares[currentPosition + index + width].classList.contains('taken'))) {
-          //start a new tetromino
+        current.forEach(index => squares[currentPosition + index].classList.add('taken'))
+        //start a new tetromino
+        random = Math.floor(Math.random() * theTetrominoes.length)
+        current = theTetrominoes[random][currentRotation]
+        currentPosition = 4
+        draw()
       }
   }
+  freeze()
 
 
+    //move the tetromino
+    function moveLeft() {
+        undraw()
+        const isAtLeftEdge = current.some(index => (currentPosition + index)%width === 0)
+        if(!isAtLeftEdge) currentPosition -=1
 
+        if(current.some(index => squares[currentPosition + index].classList.contains('taken')))
+          currentPosition +=1
+          draw()
+    }
+
+    function moveRight() {
+        undraw()
+        const isAtRightEdge = current.some(index => (currentPosition + index)%width === width-1)
+
+        if(!isAtRightEdge) currentPosition +=1
+
+        if(current.some(index => squares[currentPosition + index].classList.contains('taken')))
+          currentPosition +=1
+          draw()
+    }
+
+    //rotate the mino
+    function rotate() {
+        undraw()
+        currentRotation++
+        if(currentRotation === current.length) {
+            currentRotation = 0
+        }
+        console.log(currentRotation)
+        current = theTetrominoes[random][currentRotation]
+        draw()
+    }
+
+
+    
 });
 
 
