@@ -2,9 +2,11 @@ document.addEventListener('DOMContentLoaded', () => {
   const grid = document.querySelector('.grid');
   const squares = Array.from(document.querySelectorAll('.grid div'));
   const ScoreDisplay = document.querySelector('#score');
-  const StartBtn = document.querySelector('#start-button');
+  const startBtn = document.querySelector('#start-button');
   const width = 10;
   let nextRandom = 0;
+  let timerId;
+  let score = 0;
 
   // The Tetrominoes
 
@@ -67,7 +69,7 @@ document.addEventListener('DOMContentLoaded', () => {
       });
   }
   //make the tetromino 
-  timerId = setInterval(moveDown, 100)
+  //timerId = setInterval(moveDown, 100)
 
   //assign functions to keycodes
   function control(e) {
@@ -106,6 +108,7 @@ document.addEventListener('DOMContentLoaded', () => {
         currentPosition = 4
         draw()
         displayShape()
+        addScore()
       }
   }
   freeze()
@@ -169,7 +172,39 @@ document.addEventListener('DOMContentLoaded', () => {
             displaySquares[displayIndex + index].classList.add('tetromino'))
         
       }
-    
+    //add button functionality
+    startBtn.addEventListener('click', () =>{
+        if(timerId) {
+            clearInterval(timerId);
+            timerId = null;
+        }
+        else {
+            draw()
+            timerId = setInterval(moveDown, 100);
+            nextRandom = Math.floor(Math.random()*theTetrominoes.length)
+            displayShape();
+        }
+    })
+
+    //Add score
+  function addScore() {
+    for (i = 0; i < 199; i +=width) {
+        const row = [i, i+1, i+2, i+3, i+4, i+5, i+6, i+7, i+8, i+9]
+
+        if(row.every(index => squares[index].classList.contains('taken'))) {
+            score+=10;
+            ScoreDisplay.innerHTML = score
+            row.forEach(index => {
+                squares[index].classList.remove('taken')
+                squares[index].classList.remove('tetromino')
+            })
+            const squaresRemoved = squares.splice(i, width);
+            console.log(squaresRemoved);
+            squares = squaresRemoved.concat(squares)
+            squares.forEach(cell => grid.appendChild(cell))
+        }
+    }
+  }
 });
 
 
