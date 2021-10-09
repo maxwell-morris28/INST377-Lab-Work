@@ -4,25 +4,25 @@ html {
 body {
     background-color: coral;
 }
-/*.container {
+/*.container 
+{
     
-}*/
-.search-form {
+}
+*/
+.search-form input{
    width: 35%;  
 }
 
-.suggestions {
-    width: 500px;
+ .suggestions {
+    width: 100%;
+    list-style-type: circle;
+
 }
 
 .suggestions li{
     
     width: 30%;
     margin-top: 20px;
-    /*display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    */
+    ;
     
-
 }
