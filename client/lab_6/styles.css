@@ -3,6 +3,7 @@ html {
 }
 body {
     background-color: coral;
+    overflow: hidden;
 }
 /*.container 
 {
@@ -23,6 +24,6 @@ body {
     
     width: 30%;
     margin-top: 20px;
-    ;
+    
     
 }
