@@ -1,7 +1,7 @@
 
 async function windowActions() {
     const endpoint = "https://data.princegeorgescountymd.gov/resource/umjn-t2iz.json";
-    const mymap = L.map('mapid').setView([51.505, -0.09], 13);
+    const mymap = L.map('mapid').setView([38.989, -76.93], 12);
 
     const searchInput = document.querySelector('.search');
     const suggestions = document.querySelector('.suggestions');
@@ -36,7 +36,7 @@ async function windowActions() {
     suggestions.innerHTML = html;
    }
    const restaurant = await request.json();
-   searchInput.addEventListener('change', displayMatches);
+   searchInput.addEventListener('input', displayMatches);
    searchInput.addEventListener('keyup', (evt) => { displayMatches(evt) });
    function mapInit() {
     L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
