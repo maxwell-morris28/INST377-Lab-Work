@@ -36,7 +36,7 @@ body {
 #mapid {
     display: flex;
     flex-direction: row;
-    height: 180px;
+    height: 500px;
     width: 50%;
     display: flex;
     border: 0;
