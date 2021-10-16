@@ -1,0 +1,43 @@
+html, body {
+    margin: 0;
+}
+body {
+    background-color: coral;
+    overflow: hidden;
+}
+.container 
+{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+*/
+.search-form input{
+   width: 35%;  
+}
+
+.title {
+}
+
+.suggestions {
+    width: 100%;
+    list-style-type: circle;
+
+}
+
+.suggestions li{
+    
+    width: 30%;
+    margin-top: 20px;
+    
+    
+}
+
+#mapid {
+    display: flex;
+    flex-direction: row;
+    height: 180px;
+    width: 50%;
+    display: flex;
+    border: 0;
+}

@@ -13,7 +13,7 @@ async function windowActions() {
         //figure out if the restaurant matches what was searched
         const regex = new RegExp(wordToMatch, 'gi');
         return type.category.match(regex) ||
-        type.name.match(regex)
+        type.name.match(regex);
     });
     }
    function displayMatches() {
