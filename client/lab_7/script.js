@@ -26,42 +26,48 @@ async function windowActions() {
     //console.log(matchArray);
     const topFive = matchArray.slice(0, 5);
     console.log(topFive);
-    
-    const html = topFive.map(type => {
+    console.log(searchInput.value);
+    if (searchInput.value == '') {
+        suggestions.innerHTML = "";
+    }
+    else {
+        const html = topFive.map(type => {
         return `
             <li>
               <span class="name">${type.name}</span><br>
               <span class="name"><em>${type.address_line_1}</em></span><br>
             </li>
         `;
-    }).join('');
+        }).join('');
+        
+        suggestions.innerHTML = html;
+        
+        topFive.forEach((item, index) => {
+            const point = item.geocoded_column_1;
+            //L.marker(point.coordinates.reverse()).remove();
+            if(!point || !point.coordinates) {
+                console.log(item)
+                return;
+            }
+            markers.push(L.marker(point.coordinates.reverse()).addTo(mymap));
+        })
+    }
     
-    suggestions.innerHTML = html;
-    
-    topFive.forEach((item, index) => {
-        const point = item.geocoded_column_1;
-        //L.marker(point.coordinates.reverse()).remove();
-        if(!point || !point.coordinates) {
-            console.log(item)
-            return;
-        }
-        markers.push(L.marker(point.coordinates.reverse()).addTo(mymap));
-    })
    }
 
    const restaurant = await request.json();
    searchInput.addEventListener('input', displayMatches);
    /*function emptyInput(search) {
        //console.log(search.innerHTML)
-       if(search.innerHTML == '') {
+       if(search.value == '') {
            console.log('nothing there')
        }
        else {
            console.log("something there")
        }
    }
-   searchInput.addEventListener('input', emptyInput(searchInput));*/
-   searchInput.addEventListener('keyup', (evt) => { displayMatches(evt) });
+   searchInput.addEventListener('input', emptyInput(searchInput));
+   //searchInput.addEventListener('keyup', (evt) => { displayMatches(evt) });*/
    function mapInit() {
     L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
         attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',

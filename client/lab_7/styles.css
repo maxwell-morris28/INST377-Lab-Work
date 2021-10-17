@@ -2,11 +2,12 @@ html, body {
     margin: 0;
 }
 body {
-    overflow: hidden;
+    
 }
 .container 
 {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     width: 100%;
 }
@@ -34,10 +35,16 @@ body {
 }
 
 #mapid {
-    display: flex;
-    flex-direction: row;
+    /*display: flex;
+    flex-direction: row;*/
     height: 500px;
     width: 50%;
-    display: flex;
     border: 0;
+}
+
+@media only screen and (max-width: 500px) {
+    
+    .container {
+        display:block;
+    }
 }
