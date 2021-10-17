@@ -41,18 +41,30 @@ async function windowActions() {
         }).join('');
         
         suggestions.innerHTML = html;
+        const firstCoordinate = topFive[0].geocoded_column_1.coordinates;
+        const reverseCoordinate = firstCoordinate.reverse();
+        //console.log(topFive[0].name)
+        //console.log(topFive[0].geocoded_column_1.coordinates.reverse())
+        if (firstCoordinate[0] > 0) {
+            console.log(firstCoordinate[0])
+           mymap.flyTo(reverseCoordinate);
+           //console.log(reverseCoordinate) 
+        }
+        
         
         topFive.forEach((item, index) => {
             const point = item.geocoded_column_1;
             if(!point || !point.coordinates) {
-                console.log(item)
+                console.log(item);
                 return;
             }
-            markers.push(L.marker(point.coordinates.reverse()).addTo(mymap));
+            if(point.coordinates[0] < 0) {
+               markers.push(L.marker(point.coordinates.reverse()).addTo(mymap)); 
+            }
+           
             
         })
-        console.log(topFive[0].geocoded_column_1.coordinates)
-        mymap.panTo(topFive[0].geocoded_column_1.coordinates)
+        
         //console.log("This is the array: " + markers)
     }
     
