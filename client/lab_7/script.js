@@ -44,30 +44,23 @@ async function windowActions() {
         
         topFive.forEach((item, index) => {
             const point = item.geocoded_column_1;
-            //L.marker(point.coordinates.reverse()).remove();
             if(!point || !point.coordinates) {
                 console.log(item)
                 return;
             }
             markers.push(L.marker(point.coordinates.reverse()).addTo(mymap));
+            
         })
+        console.log(topFive[0].geocoded_column_1.coordinates)
+        mymap.panTo(topFive[0].geocoded_column_1.coordinates)
+        //console.log("This is the array: " + markers)
     }
     
    }
 
    const restaurant = await request.json();
    searchInput.addEventListener('input', displayMatches);
-   /*function emptyInput(search) {
-       //console.log(search.innerHTML)
-       if(search.value == '') {
-           console.log('nothing there')
-       }
-       else {
-           console.log("something there")
-       }
-   }
-   searchInput.addEventListener('input', emptyInput(searchInput));
-   //searchInput.addEventListener('keyup', (evt) => { displayMatches(evt) });*/
+   
    function mapInit() {
     L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
         attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
