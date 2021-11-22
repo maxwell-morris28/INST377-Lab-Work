@@ -5,6 +5,7 @@ async function windowActions() {
     const searchInput = document.querySelector('.search');
     const suggestions = document.querySelector('.suggestions');
     const request = await fetch(endpoint);
+    console.log(request)
      //... to spread into array instead of nesting
 
 
