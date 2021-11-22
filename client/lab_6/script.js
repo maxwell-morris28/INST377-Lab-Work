@@ -5,7 +5,7 @@ async function windowActions() {
     const searchInput = document.querySelector('.search');
     const suggestions = document.querySelector('.suggestions');
     const request = await fetch(endpoint);
-    console.log(request)
+    
      //... to spread into array instead of nesting
 
 
@@ -34,6 +34,7 @@ async function windowActions() {
     suggestions.innerHTML = html;
    }
    const restaurant = await request.json();
+   console.log(restaurant);
    searchInput.addEventListener('change', displayMatches);
    searchInput.addEventListener('keyup', (evt) => { displayMatches(evt) });
 }
